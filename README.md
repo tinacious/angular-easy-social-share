@@ -4,6 +4,8 @@ An easy way way to share the current page on an AngularJS app with Twitter, Face
 
 This directive uses URL links to share your page's content on each of the social media networks and therefore doesn't require the use of an app ID.
 
+View a demo [here](http://tinacious.github.io/angular-easy-social-share/).
+
 ## Usage
 
 This repository can be installed using Bower:
