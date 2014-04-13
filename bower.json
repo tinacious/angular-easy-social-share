@@ -6,6 +6,9 @@
     "type": "git",
     "url": "git://github.com/tinacious/angular-easy-social-share.git"
   },
+  "main": [
+    "easy-social-share.js"
+  ],
   "ignore": [
     "README.md"
   ],
