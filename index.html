@@ -1,0 +1,102 @@
+<!doctype html>
+<html id="ng-app" ng-app="myApp">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>AngularJS Easy Social Share</title>
+    <script type="text/javascript" src="//use.typekit.net/fcj5mrj.js"></script>
+    <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
+    <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+    <link rel="stylesheet" type="text/css" href="http://christinaholly.com/site/templates/css/main.css">
+    <style>
+      /* demo theme styles */
+      .container {
+        max-width: 600px;
+      }
+      .site-header .logo {
+        width: 100%;
+      }
+      .logo span, .logo img {
+        display: block;
+        float: left;
+      }
+      .logo span {
+        padding: 10px 0 0 10px;
+      }
+      .site-header {
+        padding: 5px 0;
+      }
+      .btn {
+        display: inline-block;
+        margin: 10px 0;
+      }
+      .btn:hover {
+        text-decoration: none;
+      }
+      code {
+        background: #e8e8e8;
+        font-family: 'consolas', monospace;
+        padding: 3px 5px;
+      }
+      @media (max-width: 767px) { 
+        .site-header .logo span {
+          display: block; 
+        } 
+      }
+
+      /* demo styles */
+      .share-links a {
+        font-size: 1.5em;
+        margin-right: 5px;
+      }
+      .share-links a:hover {
+        text-decoration: none;
+        color: #333;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container">
+        <div class="logo">
+          <img src="http://tinaciousdesign.com/images/td-logo.png" alt="Tinacious Design logo" width="50">
+          <span><b><a href="http://tinaciousdesign.com/">Tinacious Design</a></b> &ndash; plugin demos</span>
+        </div>
+      </div>
+    </header>
+
+    <section class="site-content">
+      <div class="container" ng-controller="MainCtrl">
+        <h1 ng-cloak>{{post.title}}</h1>
+        <p>
+          An easy way way to share the current page on an AngularJS app with Twitter, Facebook and LinkedIn.
+        </p>
+        <p>
+          <a href="http://github.com/tinacious/angular-picturefill" class="btn">View on Github</a>
+        </p>
+
+        <h2>Standard</h2>
+        <div class="share-links">
+          <div share-links="Facebook, Twitter, LinkedIn" share-title="{{post.title}}"></div>
+        </div>
+
+        <h2>Square version</h2>
+        <div class="share-links">
+          <div share-square="true" share-links="Facebook, Twitter, LinkedIn" share-title="{{post.title}}"></div>
+        </div>
+      </div>
+
+    </section>
+    <script src="bower_components/angular/angular.min.js"></script>
+    <script src="easy-social-share.js"></script>
+    
+    <script>
+      angular.module('myApp', ['td.easySocialShare'])
+        .controller('MainCtrl', function ($scope) {
+          $scope.post = {
+            title: 'AngularJS Easy Social Share'
+          };
+        });
+    </script>
+  </body>
+</html>
