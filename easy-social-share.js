@@ -1,10 +1,11 @@
 'use strict';
 
 angular.module('td.easySocialShare', [])
-  .directive('shareLinks', function ($location) {
+  .directive('shareLinks', ['$location', function ($location) {
     return {
       link: function (scope, elem, attrs) {
         var i,
+            sites = ['twitter', 'facebook', 'linkedin', 'google-plus'],
             theLink,
             links = attrs.shareLinks.toLowerCase().split(','),
             pageLink = encodeURIComponent($location.absUrl()),
@@ -15,7 +16,10 @@ angular.module('td.easySocialShare', [])
 
         // check if square icon specified
         square = (attrs.shareSquare && attrs.shareSquare.toString() === 'true') ? '-square' : '';
-
+        
+        // add id attribute for easy selector
+        elem.attr('id', 'td-easy-social-share');
+        
         // assign share link for each network
         angular.forEach(links, function (key) {
           key = key.trim();
@@ -30,17 +34,24 @@ angular.module('td.easySocialShare', [])
             case 'linkedin':
               theLink = 'http://www.linkedin.com/shareArticle?mini=true&url=' + pageLink + '&title=' + pageTitleUri;
               break;
+            case 'google-plus':
+              theLink = 'https://plus.google.com/share?url=' + pageLink
+              break;
           }
  
-          if (key === 'twitter' || key === 'facebook' || key === 'linkedin') {
+          if (sites.indexOf(key) > -1) {
             shareLinks.push({network: key, url: theLink});
           }
         });
- 
+        
         for (i = 0; i < shareLinks.length; i++) {
-          elem.append('<a href="'+ shareLinks[i].url +'" class="fa fa-'+shareLinks[i].network + square + '" target="_blank"></a> ');
+          var anchor = '';
+          anchor += '<a href="'+ shareLinks[i].url + '"';
+          anchor += ' class="fa fa-'+shareLinks[i].network + square + '" target="_blank"';
+          anchor += '></a>';
+          elem.append(anchor);
         }
 
       }
     };
-  });
+  }]);
