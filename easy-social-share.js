@@ -16,10 +16,10 @@ angular.module('td.easySocialShare', [])
 
         // check if square icon specified
         square = (attrs.shareSquare && attrs.shareSquare.toString() === 'true') ? '-square' : '';
-        
+
         // add id attribute for easy selector
         elem.attr('id', 'td-easy-social-share');
-        
+
         // assign share link for each network
         angular.forEach(links, function (key) {
           key = key.trim();
@@ -38,12 +38,12 @@ angular.module('td.easySocialShare', [])
               theLink = 'https://plus.google.com/share?url=' + pageLink
               break;
           }
- 
+
           if (sites.indexOf(key) > -1) {
             shareLinks.push({network: key, url: theLink});
           }
         });
-        
+
         for (i = 0; i < shareLinks.length; i++) {
           var anchor = '';
           anchor += '<a href="'+ shareLinks[i].url + '"';
