@@ -14,11 +14,10 @@ angular.module('td.easySocialShare', [])
             shareLinks = [],
             square = '';
 
+        elem.addClass('td-easy-social-share');
+
         // check if square icon specified
         square = (attrs.shareSquare && attrs.shareSquare.toString() === 'true') ? '-square' : '';
-
-        // add class attribute for easy dom/css selection
-        elem.addClass('td-easy-social-share');
 
         // assign share link for each network
         angular.forEach(links, function (key) {
@@ -35,7 +34,7 @@ angular.module('td.easySocialShare', [])
               theLink = 'http://www.linkedin.com/shareArticle?mini=true&url=' + pageLink + '&title=' + pageTitleUri;
               break;
             case 'google-plus':
-              theLink = 'https://plus.google.com/share?url=' + pageLink
+              theLink = 'https://plus.google.com/share?url=' + pageLink;
               break;
           }
 
@@ -51,7 +50,6 @@ angular.module('td.easySocialShare', [])
           anchor += '></a>';
           elem.append(anchor);
         }
-
       }
     };
   }]);

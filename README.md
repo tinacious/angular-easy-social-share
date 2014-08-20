@@ -1,6 +1,6 @@
 # AngularJS Easy Social Share
 
-An easy way way to share the current page on an AngularJS app with Twitter, Facebook, Google Plus and LinkedIn.
+An easy way way to share the current page on an AngularJS app with Twitter, Facebook, Google Plus, and LinkedIn.
 
 This directive uses URL links to share your page's content on each of the social media networks and therefore doesn't require the use of an app ID.
 
