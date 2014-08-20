@@ -17,8 +17,8 @@ angular.module('td.easySocialShare', [])
         // check if square icon specified
         square = (attrs.shareSquare && attrs.shareSquare.toString() === 'true') ? '-square' : '';
 
-        // add id attribute for easy selector
-        elem.attr('id', 'td-easy-social-share');
+        // add class attribute for easy dom/css selection
+        elem.addClass('td-easy-social-share');
 
         // assign share link for each network
         angular.forEach(links, function (key) {
