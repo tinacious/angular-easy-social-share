@@ -5,7 +5,7 @@ angular.module('td.easySocialShare', [])
     return {
       link: function (scope, elem, attrs) {
         var i,
-            sites = ['twitter', 'facebook', 'linkedin', 'google-plus'],
+            sites = ['twitter', 'facebook', 'linkedin', 'google-plus', 'tumblr'],
             theLink,
             links = attrs.shareLinks.toLowerCase().split(','),
             pageLink = encodeURIComponent($location.absUrl()),
@@ -35,6 +35,9 @@ angular.module('td.easySocialShare', [])
               break;
             case 'google-plus':
               theLink = 'https://plus.google.com/share?url=' + pageLink;
+              break;
+            case 'tumblr':
+              theLink = 'http://www.tumblr.com/share/link?url=' + pageLink + '&amp;name=' + pageTitleUri;
               break;
           }
 

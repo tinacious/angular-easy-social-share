@@ -1,6 +1,6 @@
 {
   "name": "angular-easy-social-share",
-  "description": "An easy way way to share the current page on an AngularJS app with Twitter, Facebook and LinkedIn.",
+  "description": "An easy way way to share the current page on an AngularJS app with Twitter, Facebook, Google Plus, LinkedIn and Tumblr.",
   "version": "1.0",
   "repository": {
     "type": "git",
